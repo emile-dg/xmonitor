@@ -4,13 +4,17 @@
     "description": "",
     "main": "dist/index.js",
     "scripts": {
-        "build": "tsc"
+        "clean": "rimraf dist/",
+        "copy-files": "copyfiles -u 1 /config.json dist",
+        "build": "npm run clean && tsc --build && npm run copy-files"
     },
     "dependencies": {
         "@aws-sdk/client-ses": "^3.840.0",
         "axios": "^1.10.0",
+        "copyfiles": "^2.4.1",
         "dotenv": "^17.0.1",
         "node-schedule": "^2.1.1",
+        "rimraf": "^6.0.1",
         "ts-node": "^10.9.2"
     },
     "devDependencies": {
